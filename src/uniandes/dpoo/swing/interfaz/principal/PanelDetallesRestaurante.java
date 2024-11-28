@@ -1,12 +1,14 @@
 package uniandes.dpoo.swing.interfaz.principal;
 
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import uniandes.dpoo.swing.mundo.Restaurante;
 
@@ -30,17 +32,30 @@ public class PanelDetallesRestaurante extends JPanel
 
     public PanelDetallesRestaurante( )
     {
+    	this.setLayout( new GridLayout(3, 1, 8, 25 ) );
         // Configura la etiqueta para el nombre
         // TODO completar el constructor
+    	labNombre = new JLabel(" Nombre: ");
+    	Font fontActual = labNombre.getFont();
+    	labNombre.setFont(fontActual.deriveFont(fontActual.getStyle(), 13f));
 
         // Configura la etiqueta para la calificación
         // TODO completar el constructor
+    	labCalificacion = new JLabel(" Calificación: ");
+    	labCalificacion.setFont(fontActual.deriveFont(fontActual.getStyle(), 13f));
 
         // Configura el checkbox para indicar si ya se visitaó o no el restaurante
         // TODO completar el constructor
+    	chkVisitado = new JCheckBox("Visitado: ");	
+    	chkVisitado.setHorizontalTextPosition(SwingConstants.LEFT);
+    	chkVisitado.setFont(fontActual.deriveFont(fontActual.getStyle(), 13f));
+    	chkVisitado.setEnabled(false);
 
         // Organiza los elementos en la venta
         // TODO completar el constructor
+    	add(labNombre);
+    	add(labCalificacion);
+    	add(chkVisitado);
     }
 
     /**
@@ -52,6 +67,11 @@ public class PanelDetallesRestaurante extends JPanel
     private void actualizarRestaurante( String nombre, int calificacion, boolean visitado )
     {
      // TODO completar actualizarRestaurante
+    	labNombre.setText(" Nombre: "+nombre);
+    	ImageIcon imagenCalificacion = buscarIconoCalificacion(calificacion);
+    	labCalificacion.setIcon(imagenCalificacion);
+    	labCalificacion.setHorizontalTextPosition(SwingConstants.LEADING);
+    	chkVisitado.setSelected(visitado);
     }
 
     /**

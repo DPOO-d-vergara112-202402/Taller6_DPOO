@@ -1,9 +1,11 @@
 package uniandes.dpoo.swing.interfaz.principal;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -32,9 +34,23 @@ public class PanelBotones extends JPanel implements ActionListener
 
         // Agrega el botón para crear un nuevo restaurante
         // TODO completar
+        butNuevo =  new JButton(NUEVO);
+        butNuevo.setBackground(Color.WHITE);
+        butNuevo.addActionListener(this);
+        butNuevo.setActionCommand(NUEVO);
+        butNuevo.setVisible(true);
+        this.add(butNuevo);
+        
+        this.add(Box.createHorizontalStrut(20));
 
         // Agrega el botón para ver todos los restaurantes
         // TODO completar
+        butVerTodos = new JButton(VER);
+        butVerTodos.setBackground(Color.WHITE);
+        butVerTodos.addActionListener(this);
+        butVerTodos.setActionCommand(VER);
+        butVerTodos.setVisible(true);
+        this.add(butVerTodos);
     }
 
     @Override

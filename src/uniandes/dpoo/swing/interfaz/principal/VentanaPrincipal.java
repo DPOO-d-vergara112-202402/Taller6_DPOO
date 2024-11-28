@@ -45,7 +45,7 @@ public class VentanaPrincipal extends JFrame
 
     public VentanaPrincipal( Diario elDiario )
     {
-        this.mundo = elDiario;
+    	this.mundo = elDiario;
         setLayout( new BorderLayout( ) );
 
         // Configura los componentes de la ventana
@@ -87,6 +87,12 @@ public class VentanaPrincipal extends JFrame
     public void mostrarVentanaMapa( )
     {
         // TODO completar mostrarVentanaMapa
+    	if( ventanaMapa == null || !ventanaMapa.isVisible( ) )
+        {
+        	// Mostramos todos los restaurantes
+        	ventanaMapa = new VentanaMapa( this, getRestaurantes(true) );
+        	ventanaMapa.setVisible( true );
+        }
     }
 
     /**
@@ -99,7 +105,9 @@ public class VentanaPrincipal extends JFrame
      */
     public void agregarRestaurante( String nombre, int calificacion, int x, int y, boolean visitado )
     {
-        // TODO completar agregarRestaurante
+    	Restaurante restauranteNuevo = new Restaurante(nombre, calificacion, x, y, visitado);
+    	mundo.agregarRestaurante(restauranteNuevo);
+        actualizarRestaurantes();
     }
 
     /**
@@ -121,6 +129,7 @@ public class VentanaPrincipal extends JFrame
     {
         List<Restaurante> todos = this.mundo.getRestaurantes( true );
         // TODO completar actualizarRestaurantes
+        pLista.actualizarRestaurantes(todos);
     }
 
     /**

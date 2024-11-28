@@ -1,9 +1,11 @@
 package uniandes.dpoo.swing.interfaz.agregar;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -36,9 +38,23 @@ public class PanelBotonesAgregar extends JPanel implements ActionListener
 
         // Agrega el botón para crear el restaurante
         // TODO completar
+        butNuevo =  new JButton(CREAR);
+        butNuevo.setBackground(Color.white);
+        butNuevo.setVisible(true);
+        butNuevo.addActionListener(this);
+        butNuevo.setActionCommand(CREAR);
+        this.add(butNuevo);
+        
+        this.add(Box.createHorizontalStrut(20));
 
         // Agrga el boton para cerrar la ventana
         // TODO completar
+        butCerrar = new JButton(CERRAR);
+        butCerrar.setBackground(Color.white);
+        butCerrar.addActionListener(this);
+        butCerrar.setActionCommand(CERRAR);
+        butCerrar.setVisible(true);
+        this.add(butCerrar);
     }
 
     @Override
